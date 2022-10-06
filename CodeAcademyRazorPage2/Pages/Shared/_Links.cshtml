@@ -1,0 +1,33 @@
+﻿@using CodeAcademyRazorPage2.Models;
+
+@if (ViewData["Title"] == "Home")
+{
+    Link link = new Link();
+    <a href="@link.Linkedin">LinkedIn profile</a>
+}
+else if (ViewData["Title"] == "Projects")
+{
+    Link link = new Link();
+    <a href="@link.Github">Github profile</a>
+}
+
+
+
+
+@if (ViewData["Title"] == "Home")
+{
+    <a asp-protocol="https"
+       asp-host="www.linkedin.com"
+       asp-controller="tufan-keser-853a8813b">
+    </a>
+}
+else if (ViewData["Title"] == "Projects")
+{
+    <a asp-protocol="https"
+       asp-host="github.com"
+       asp-controller="TufanKeser">
+    </a>
+
+}
+
+    -->

@@ -1,0 +1,68 @@
+﻿@page
+<!-- Index.cshtml -->
+<!-- Add model directive below -->
+@using CodeAcademyRazorPage2.Models;
+@model IndexModel
+
+
+@{
+    ViewData["Title"] = "Home";
+
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="jumbotron jumbotron-fluid jumbotron-container resume-jumbotron text-white">
+    <div class="container-fluid jumbotron-content">
+        <p class="text-center jumbotron-header mb-4">Hey there, I'm @Model.LinkedInUserName<!-- Your name here -->!</p>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="resume-content">
+        <h4 class="general-header mb-3">Summary:</h4>
+        <p class="general-content mb-3">I'm an enthusiastic software engineer with @Model.YearsOfExperience + years of experience participating in the complete lifecyclye of successfully launched applications. I am skilled in developing business plans, requirements specifications, user documentation, and architectural systems research. Strong written and verbal communications.</p>
+    </div>
+
+
+    <div>
+
+
+        @if (ViewData["Title"] == "Home")
+        {
+            Link link = new Link();
+            <i style="font-size:24px" class="fa">&#xf08c;</i>
+            <a href="@link.Linkedin" target="_blank">LinkedIn profile</a>
+        }
+        else if (ViewData["Title"] == "Projects")
+        {
+            Link link = new Link();
+            <i style="font-size:24px" class="fa">&#xf08c;</i>
+            <a href="@link.Github" target="_blank">Github profile</a>
+        }
+
+    </div>
+
+
+
+    <div class="resume-content">
+        <h4 class="general-header mb-3">Languages:</h4>
+        <ul class="list-group general-content">
+
+            <!-- Language -->
+            @foreach (var language in Model.Languages)
+            {
+                <li>@language</li>
+            }
+
+
+        </ul>
+    </div>
+
+    <div class="resume-content">
+        <h4 class="general-header mb-3">Contact</h4>
+        <p class="general-content">
+            <!-- Render partial for Link below -->
+        </p>
+    </div>
+</div>

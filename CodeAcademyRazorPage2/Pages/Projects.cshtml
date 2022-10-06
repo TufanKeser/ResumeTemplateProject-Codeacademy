@@ -1,0 +1,74 @@
+﻿@page
+@using CodeAcademyRazorPage2.Models;
+@model ProjectsModel
+
+
+@{
+    ViewData["Title"] = "Projects";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="jumbotron jumbotron-fluid jumbotron-container text-white project-jumbotron">
+    <div class="container-fluid jumbotron-content">
+        <p class="text-center mb-4 jumbotron-header">Projects</p>
+    </div>
+
+</div>
+
+
+
+
+
+<div class="container">
+    <div class="project-container">
+        <div>
+
+
+            @if (ViewData["Title"] == "Home")
+            {
+                Link link = new Link();
+                <i style="font-size:24px" class="fa">&#xf09b;</i>
+                <a href="@link.Linkedin" target="_blank">LinkedIn profile</a>
+            }
+            else if (ViewData["Title"] == "Projects")
+            {
+                Link link = new Link();
+                <i style="font-size:24px" class="fa">&#xf09b;</i>
+                <a href="@link.Github" target="_blank">Github profile</a>
+            }
+
+        </div>
+    </div>
+
+    @foreach (Models.Project project in @Model.Projects)
+    {
+        if (@project.Year > 2017)
+        {
+
+            <div class="container">
+                <div class="project-container">
+                    <h4 class="project-title general-header">
+                        @project.Title
+                    </h4>
+                    <p class="project-year general-header">
+                        <!--  Project Year -->
+                        @project.Year
+                    </p>
+                    <p class="project-description general-content">
+                        <!--  Project Description -->
+                        @project.Description
+                    </p>
+                </div>
+
+                <br>
+                <h4 class="general-header">Portfolio</h4>
+                <p class="general-content">
+                    <!-- Render partial for Link below -->
+                </p>
+                <br>
+            </div>
+
+
+        }
+
+    }
